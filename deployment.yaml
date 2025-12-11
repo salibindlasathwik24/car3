@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: car-emission-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: car-emission
+  template:
+    metadata:
+      labels:
+        app: car-emission
+    spec:
+      containers:
+        - name: car-emission
+          image: sathwik10/caremission
+          ports:
+            - containerPort: 5000
